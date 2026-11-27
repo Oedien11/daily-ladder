@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "menu": {
+    "items": [
+      {
+        "description": "Post today's word ladder for the community to climb",
+        "endpoint": "/internal/menu/post-create",
+        "forUserType": "moderator",
+        "label": "Create a Daily Ladder post",
+        "location": "subreddit"
+      }
+    ]
+  },
+  "name": "daily-ladder",
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": { "entry": "splash.html", "inline": true },
+      "game": { "entry": "game.html" }
+    }
+  },
+  "scripts": { "build": "vite build", "dev": "vite build --watch" },
+  "server": { "dir": "dist/server", "entry": "index.cjs" },
+  "triggers": { "onAppInstall": "/internal/triggers/on-app-install" }
+}
